@@ -4,7 +4,7 @@
   hosts: tag_Name_ansible-built
   remote_user: ubuntu
   gather_facts: yes
-  
+
   roles:
     - role: django
     - role: gunicorn
@@ -15,7 +15,7 @@
           - listen 80
           - server_name "{{ ec2_public_dns_name }}"
           - access_log "/var/log/nginx/django.log"
-          - client_max_body_size 10M;
+          - client_max_body_size 10M
 
           - location / { 
               proxy_pass http://127.0.0.1:8000;

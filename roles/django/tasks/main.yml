@@ -37,6 +37,7 @@
 - name: Run Migrations
   environment:
     DATABASE_URL: "{{ db_url }}"
+    IMAGER_SECRET_KEY: "{{ imager_secret_key }}"
   django_manage:
     app_path: "{{ django_home }}"
     settings: imager.settings
@@ -45,6 +46,7 @@
 - name: Collect Static Files
   environment:
     DATABASE_URL: "{{ db_url }}"
+    IMAGER_SECRET_KEY: "{{ imager_secret_key }}"
   django_manage:
     app_path: "{{ django_home }}"
     settings: imager.settings
