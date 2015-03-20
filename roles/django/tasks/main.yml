@@ -14,7 +14,7 @@
     - git
 
 - name: Clone Django Repository
-  git: repo=https://github.com/cewing/djangoblog_uwpce.git dest={{ django_home }} force=yes
+  git: repo=https://github.com/henrykh/django-imager.git dest={{ django_home }} force=yes version=front-end depth=1
 
 - name: Install Python Dependencies
   sudo: yes
@@ -39,7 +39,7 @@
     DATABASE_URL: "{{ db_url }}"
   django_manage:
     app_path: "{{ django_home }}"
-    settings: mysite.production
+    settings: imager.settings
     command: migrate
 
 - name: Collect Static Files
@@ -47,5 +47,5 @@
     DATABASE_URL: "{{ db_url }}"
   django_manage:
     app_path: "{{ django_home }}"
-    settings: mysite.production
+    settings: imager.settings
     command: collectstatic
