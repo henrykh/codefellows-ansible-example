@@ -1,1 +1,5 @@
 secrets.yml
+
+# Sublime
+*.sublime-project
+*.sublime-workspace
