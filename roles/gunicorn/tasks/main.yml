@@ -8,6 +8,9 @@
   sudo: yes
   template: src=djangoblog.conf.j2 dest=/etc/init/djangoblog.conf
 
+- name: Get env variables
+  include_vars: secrets.yml
+
 - name: Start gunicorn Upstart Job
   sudo: yes
   service: name=djangoblog state=restarted
